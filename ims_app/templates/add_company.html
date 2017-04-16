@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
-{% block title %}Add company{% endblock %}
+{% block title %}Add Company{% endblock %}
 
 {% block content %}
-    <form method="POST">
-        <h1>Add company name</h1>
-        {{ form.as_p }}
+    <form method="POST" id="all-forms">
+        <div class="w3-container w3-blue-grey w3-card-2">
+            <h3 id="form-header"><b>ADD COMPANY</b></h3>
+        </div><br>
+        {{ form | crispy }}
         {% csrf_token %}
-        <input type="submit" value="Add">
+        <input type="submit" id="submit-btn" value="SUBMIT" style="font-size: large" class="w3-button w3-xlarge w3-blue-grey w3-round-large w3-border w3-block">
     </form>
 {% endblock %}

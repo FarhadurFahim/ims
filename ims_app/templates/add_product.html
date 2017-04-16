@@ -3,8 +3,10 @@
 {% block title %}Add product{% endblock %}
 
 {% block content %}
-    <form method="POST">
-        <h1>Add product</h1>
+    <form method="POST" id="all-forms">
+        <div class="w3-container w3-blue-grey w3-card-2">
+            <h3 id="form-header"><b>STOCK IN</b></h3>
+        </div><br>
         {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -12,23 +14,8 @@
             {% endfor %}
         </ul>
         {% endif %}
-        {%  comment  "Hide this" %}
-        Product Name<input type="text" name="product_name"><br>
-        Product Group<select class="" name="product_group">
-            {% for gn in group_name %}
-                <option value="{{ gn.id }}">{{ gn.group_name }}</option>
-            {% endfor %}
-
-        </select><br>
-        Company name<select name="product_company">
-            {% for pc in company_name %}
-                <option value="{{ pc.id }}">{{ pc.company_name }}</option>
-            {% endfor %}
-
-        </select><br>
-        {% endcomment %}
         {{ form | crispy }}
-        <input type="submit" value="Add">
+        <input type="submit" id="submit-btn" value="SUBMIT" style="font-size: large" class="w3-button w3-xlarge w3-blue-grey w3-round-large w3-border w3-block">
         {% csrf_token %}
     </form>
 {% endblock %}

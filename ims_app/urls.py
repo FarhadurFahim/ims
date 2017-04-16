@@ -2,7 +2,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.view_product_list, name='stock_in'),
+    url(r'^$', views.stock_view, name='stocks'),
     url(r'^add_company/$', views.add_company_view, name='add_company'),
     url(r'^company_list/$', views.view_company_list, name='company_list'),
     url(r'^add_group/$', views.add_group_view, name='add_group'),
@@ -16,4 +16,6 @@ urlpatterns = [
     url(r'^stock_out/$', views.stock_out_view, name='stock_out'),
     url(r'^stock_out_list/$', views.stock_out_list, name='stock_out_list'),
     url(r'^stocks/$', views.stock_view, name='stocks'),
+    url(r'^login/$', views.mod_login_view, name='login'),
+    url(r'^logout/$', views.mod_logout_view, name='logout'),
 ]

@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-{% block title %}Add StockIn{% endblock %}
+{% block title %}Add Stock In{% endblock %}
 
 {% block content %}
-    <form method="POST">
-        <h1>Stock In</h1>
+    <form method="POST" id="all-forms">
+        <div class="w3-container w3-blue-grey w3-card-2">
+            <h3 id="form-header"><b>STOCK IN</b></h3>
+        </div><br>
         {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -16,6 +18,6 @@
         {{ form | crispy }}
 
         {% csrf_token %}
-        <input type="submit" value="Add">
+        <input type="submit" id="submit-btn" value="SUBMIT" style="font-size: large" class="w3-button w3-xlarge w3-blue-grey w3-round-large w3-border w3-block">
     </form>
 {% endblock %}

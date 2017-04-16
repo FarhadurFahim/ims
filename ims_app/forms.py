@@ -45,7 +45,6 @@ class AddStockOutForm(forms.ModelForm):
                   'product_sell_unit':'Product Sell Unit'}
 
 
-'''class AddStockOutForm(forms.ModelForm):
-    class Meta:
-        model = StockOut
-        # fields = ('product_info', 'supplier_info', 'product_price', 'product_unit')'''
+class ModLoginForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)

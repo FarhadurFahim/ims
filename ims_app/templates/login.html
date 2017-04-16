@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>Log in | IMS</title>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/admin/css/login.css" />
+    <style>
+        #header{
+            background-color: #009688;
+            color: #f6ef6a;
+        }
+        #branding h1, #branding h1 a:link, #branding h1 a:visited {
+            color: #f5dd5d;
+            font-size: 35px;
+            font-weight: 600;
+        }
+        div.breadcrumbs{
+            background: #009688;
+            font-size: 16px;
+        }
+        #user-tools{
+            font-weight: 500;
+            font-size: 13px;
+        }
+        td, th {
+            font-size: 15px;
+            padding: 10px;
+        }
+        .module h2, .module caption, .inline-group h2{
+
+            font-size: 15px;
+            background: #009688;
+        }
+        #submit-btn{
+            width: 120px;
+            height: 40px;
+        }
+
+
+    </style>
+    <meta name="robots" content="NONE,NOARCHIVE" />
+</head>
+
+
+<body class=" login" data-admin-utc-offset="21600">
+    <!-- Container -->
+    <div id="container">
+        <!-- Header -->
+        <div id="header">
+            <div id="branding">
+                <h1 id="site-name"><a href="/admin/">IMS LOGIN</a></h1>
+            </div>
+        </div>
+        <!-- End Header -->
+
+        <!-- Content -->
+        <div id="content" class="colM">
+
+            <div id="content-main">
+
+                <form action="" method="post" id="login-form">
+                    {% csrf_token %}
+                      <div class="form-row">
+                          <label class="required" for="id_username">Username:</label> <input type="text" name="username" maxlength="254" required id="id_username" autofocus />
+                      </div>
+                    <div class="form-row">
+                        <label class="required" for="id_password">Password:</label> <input type="password" name="password" required id="id_password" />
+                        <input type="hidden" name="next" value="/" />
+                    </div>
+                    <div class="submit-row" id="submit-btn2">
+                        <label>&nbsp;</label><input id="submit-btn" type="submit" value="LOGIN" />
+                    </div>
+                </form>
+            </div>
+
+            <br class="clear" />
+        </div>
+        <!-- END Content -->
+    </div>
+    <!-- END Container -->
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}supplier list{% endblock %}
+
+{% block content %}
+    <table class="w3-table-all w3-hoverable w3-centered">
+        <tr class="w3-brown">
+            <th>Supplier Name</th>
+            <th>Supplier Address</th>
+            <th>Supplier Contact</th>
+        </tr>
+        {% for items in lists %}
+        <tr>
+            <td>{{ items.supplier_name }}</td>
+            <td>{{ items.supplier_address }}</td>
+            <td>{{ items.supplier_contact }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

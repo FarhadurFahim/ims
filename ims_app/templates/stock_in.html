@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add StockIn{% endblock %}
+
+{% block content %}
+    <form method="POST">
+        <h1>Stock In</h1>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {{ form | crispy }}
+
+        {% csrf_token %}
+        <input type="submit" value="Add">
+    </form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Stock Out list{% endblock %}
+
+{% block content %}
+    <table class="w3-table-all w3-hoverable w3-centered">
+        <tr class="w3-brown">
+            <th>Product Name</th>
+            <th>Product Buying Price</th>
+            <th>Product Selling Price</th>
+            <th>Product Available unit</th>
+            <th>Product Out Unit</th>
+            <th>Stock Out Date</th>
+        </tr>
+        {% for items in lists %}
+        <tr>
+            <td>{{ items.product_info.product_name }}</td>
+            <td>{{ items.product_info.product_price }}</td>
+            <td>{{ items.product_sell_price }}</td>
+            <td>{{ items.product_info.product_unit }}</td>
+            <td>{{ items.product_sell_unit }}</td>
+            <td>{{ items.stockout_date }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

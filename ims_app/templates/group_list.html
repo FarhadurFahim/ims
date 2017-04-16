@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Group list{% endblock %}
+
+{% block content %}
+
+    <table class="w3-table-all w3-hoverable w3-centered">
+        <tr class="w3-brown">
+            <th>Group Name</th>
+        </tr>
+        {% for items in lists %}
+        <tr>
+            <td>{{ items.group_name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

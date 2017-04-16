@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}StockIn list{% endblock %}
+
+{% block content %}
+    <table class="w3-table-all w3-hoverable w3-centered">
+        <tr class="w3-brown">
+            <th>Product Name</th>
+            <th>Product Group</th>
+            <th>Product Company</th>
+            <th>Product Price</th>
+            <th>Product Unit</th>
+            <th>Supplier Name</th>
+            <th>Stock In Date</th>
+        </tr>
+        {% for items in lists %}
+        <tr>
+            <td>{{ items.product_info.product_name }}</td>
+            <td>{{ items.product_info.product_group }}</td>
+            <td>{{ items.product_info.product_company }}</td>
+            <td>{{ items.product_price }}</td>
+            <td>{{ items.product_unit }}</td>
+            <td>{{ items.supplier_info.supplier_name }}</td>
+            <td>{{ items.stockin_date }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

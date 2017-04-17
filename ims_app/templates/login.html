@@ -61,7 +61,14 @@
 
                 <form action="" method="post" id="login-form">
                     {% csrf_token %}
-                      <div class="form-row">
+                    {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <div class="form-row">
                           <label class="required" for="id_username">Username:</label> <input type="text" name="username" maxlength="254" required id="id_username" autofocus />
                       </div>
                     <div class="form-row">

@@ -8,12 +8,14 @@
             <th>Supplier Name</th>
             <th>Supplier Address</th>
             <th>Supplier Contact</th>
+            <th>Supplier Email</th>
         </tr>
         {% for items in lists %}
         <tr>
             <td>{{ items.supplier_name }}</td>
             <td>{{ items.supplier_address }}</td>
             <td>{{ items.supplier_contact }}</td>
+            <td>{{ items.supplier_email }}</td>
         </tr>
         {% endfor %}
     </table>

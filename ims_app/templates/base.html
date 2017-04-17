@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'w3css.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'ims-app.css' %}">
 	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
 </head>
 <body>
@@ -79,7 +80,7 @@
         <div class="w3-container w3-teal" id="main-header">
             {% if user.is_authenticated %}
                 <a href="/logout/" class="w3-right w3-bar-item w3-button">Logout</a>
-                <a href="#" class="w3-right w3-bar-item w3-button">welcome, {{ user }}</a>
+                <a href="#" class="w3-right w3-bar-item w3-button">welcome [{{ user }}]</a>
             {% else %}
                 <a href="/login/" class="w3-right w3-bar-item w3-button">Login</a>
             {% endif %}

@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from .models import *
 from .forms import *
 from django.contrib import messages
@@ -7,12 +7,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 
-# Create your views here.
-
-
 @login_required(login_url='/login/')
 def view_company_list(request):
-    # list = get_object_or_404()
     lists = ProductCompany.objects.all()
     return render(request, 'company_list.html', {'lists': lists, })
 
@@ -92,7 +88,6 @@ def add_supplier_view(request):
 
 @login_required(login_url='/login/')
 def view_supplier_list(request):
-    # list = get_object_or_404()
     lists = Supplier.objects.all()
     return render(request, 'supplier_list.html', {'lists': lists, })
 
@@ -123,9 +118,6 @@ def stock_in_view(request):
             messages.error(request, 'All fields required')
     else:
         stock_in_form = AddStockInForm()
-    '''return render(request, 'stock_in.html',
-                  {'form': stock_in_form, 'product_info': product_info, 'supplier_info': supplier_info,
-                   'group_info': group_info, 'company_info': company_info})'''
     return render(request, 'stock_in.html', {'form': stock_in_form, 'prduct_info':product_info, 'supplier_info':supplier_info})
 
 
@@ -151,15 +143,12 @@ def stock_out_view(request):
                 Stocks.objects.filter(product_name=p_name).update(product_price=ob.product_price, product_unit=p_unit)
             except Stocks.DoesNotExist:
                 print('Something error!')
-
             stock_out_form.save()
-
             return redirect('/stock_out_list/')
         else:
             messages.error(request, 'All fields required')
     else:
         stock_out_form = AddStockOutForm()
-
     return render(request, 'stock_out.html',{'form': stock_out_form, 'product_info': product_info})
 
 

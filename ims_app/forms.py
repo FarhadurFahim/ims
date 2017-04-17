@@ -3,16 +3,12 @@ from .models import StockIn, StockOut, ProductCompany, ProductGroup, Product, Su
 
 
 class AddCompanyForm(forms.ModelForm):
-    # company_name = forms.CharField(max_length=100)
-
     class Meta:
         model = ProductCompany
         fields = ('company_name',)
 
 
 class AddGroupForm(forms.ModelForm):
-    # company_name = forms.CharField(max_length=100)
-
     class Meta:
         model = ProductGroup
         fields = ('group_name',)

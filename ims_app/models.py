@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-# Create your models here.
 
 
 class Supplier(models.Model):
@@ -50,8 +49,6 @@ class Product(models.Model):
 
 class StockIn(models.Model):
     product_info = models.ForeignKey(Product, null=True)
-    # product_group = models.ForeignKey(ProductGroup, on_delete=models.CASCADE)
-    # product_company = models.ForeignKey(ProductCompany, on_delete=models.CASCADE)
     supplier_info = models.ForeignKey(Supplier)
     product_price = models.FloatField()
     product_unit = models.IntegerField()
@@ -65,7 +62,6 @@ class StockIn(models.Model):
 
 
 class Stocks(models.Model):
-    # available_stock = models.ForeignKey(StockIn, on_delete=models.CASCADE)
     product_name = models.CharField(max_length=50)
     product_price = models.FloatField()
     product_unit = models.IntegerField()
@@ -88,5 +84,4 @@ class StockOut(models.Model):
 
     def __str__(self):
         return '%s %s' %(self.product_info.product_name, self.product_sell_price)
-        # return '%s %s' (self.product_name, self.product_price)
 

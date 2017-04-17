@@ -74,7 +74,7 @@ class StockOutAdmin(admin.ModelAdmin):
 
     def get_sup_name(self, obj):
         return obj.supplier_info.supplier_name
-    # get_name.admin_order_field = 'supplier_name'
+
     get_p_name.short_description = 'Product Name'
     get_b_price.short_description = 'Buying price'
     get_a_unit.short_description = 'Available unit'
